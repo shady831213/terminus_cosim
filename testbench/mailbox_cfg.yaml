@@ -1,0 +1,9 @@
+core0:
+  space: core0
+  elf: ${ELF_FILE}
+core1:
+  space: core1
+  elf: ${ELF_FILE}
+core2:
+  space: core2
+  elf: ${ELF_FILE}

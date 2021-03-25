@@ -1,0 +1,39 @@
+shared:
+  global:
+    id : 0x1000
+    base: 0x80000000
+    size: 0x80000000
+
+space:
+  core0:
+    - core0.ilm:
+        id : 0x00
+        base: 0
+        size: 4096
+    - core0.dlm:
+        id : 0x01
+        base: 4096
+        size: 16384
+    - global
+
+  core1:
+    - core1.ilm:
+        id : 0x10
+        base: 0
+        size: 4096
+    - core1.dlm:
+        id : 0x11
+        base: 4096
+        size: 16384
+    - global
+
+  core2:
+    - core2.ilm:
+        id : 0x20
+        base: 0
+        size: 4096
+    - core2.dlm:
+        id : 0x21
+        base: 4096
+        size: 16384
+    - global
