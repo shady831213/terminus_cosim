@@ -6,7 +6,7 @@ cd ${CUR_DIR}/terminus_cluster
 cargo build --release
 cd ${CUR_DIR}/tb_dpi
 cargo build --release
-cd ${CUR_DIR}/../vfw_rs/platform/terminus_cosim
+cd ${CUR_DIR}/vfw_rs/platform/terminus_cosim
 ./build.sh $TESTNAME
 cd ${CUR_DIR}
 
@@ -19,5 +19,5 @@ make -C ${CUR_DIR}/obj_dir -f VTestModule.mk
 
 MAILBOX_CFG_FILE=${CUR_DIR}/testbench/mailbox_cfg.yaml \
 MEM_CFG_FILE=${CUR_DIR}/testbench/mem_cfg.yaml \
-ELF_FILE=${CUR_DIR}/../vfw_rs/platform/terminus_cosim/target/$TESTNAME/$TESTNAME \
+ELF_FILE=${CUR_DIR}/vfw_rs/platform/terminus_cosim/target/$TESTNAME/$TESTNAME \
 ./test
