@@ -3,12 +3,17 @@ set -e
 TESTNAME=$1
 CUR_DIR=${PWD}
 cd ${CUR_DIR}/terminus_cluster
+#proxychains cargo update
 cargo build --release
 cd ${CUR_DIR}/tb_dpi
+#proxychains cargo update
 cargo build --release
 cd ${CUR_DIR}/vfw_rs/platform/terminus_cosim
+#proxychains cargo update --workspace
 ./build.sh $TESTNAME
 cd ${CUR_DIR}
+
+rm -rf ${CUR_DIR}/obj_dir
 
 verilator --cc --exe -sv -o ${CUR_DIR}/test --vpi --top-module \
     TestModule ${CUR_DIR}/testbench/verilator_main.cc ${CUR_DIR}/testbench/tb.sv \

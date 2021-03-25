@@ -85,7 +85,7 @@ module TestModule(input bit clock);
     end
 
     always@(posedge clock) begin
-        if (timeout_cnt >= 100000) begin
+        if (timeout_cnt >= 1000000) begin
             $display("timeout!");
             $finish();
         end
