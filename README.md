@@ -23,4 +23,4 @@ Then you should get:
 
 
 ## About other EDA tools
-Other EDA tools, such as xrun, are also supported, but you need modify some DPI method to adapt to it.
+Other EDA tools, such as xrun, are also supported, but you need modify some DPI method to adapt to them.
