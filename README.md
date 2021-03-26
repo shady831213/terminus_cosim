@@ -7,6 +7,7 @@ This project is a cosim sulotion of ISA + verilog. It shows [terminus](https://g
       + Rust nightly toolchain with target riscv32imac-unknown-none-elf
       + [bindgen](https://github.com/rust-lang/rust-bindgen) [dependencis](https://github.com/KyleMayes/clang-sys#environment-variables)
       + [riscv-gnu-toolchain](https://github.com/riscv/riscv-gnu-toolchain) if you want C testcase supporting.
+      + [cargo-binutils](https://github.com/rust-embedded/cargo-binutils)
 
 
 ## Getting Start
