@@ -4,6 +4,8 @@ core0:
 core1:
   space: core1
   elf: ${ELF_FILE}
+  load: false
 core2:
   space: core2
   elf: ${ELF_FILE}
+  load: false
