@@ -22,16 +22,16 @@
 `define DLM_ID 32'h1
 
 module TestModule(input bit clock);
-    import "DPI-C" function void mb_backdoor_write_u8(string name, longint unsigned addr, byte unsigned data);
-    import "DPI-C" function void mb_backdoor_read_u8(string name, longint unsigned addr, output byte unsigned data);
-    import "DPI-C" function void mb_backdoor_write_u16(string name, longint unsigned addr, shortint unsigned data);
-    import "DPI-C" function void mb_backdoor_read_u16(string name, longint unsigned addr, output shortint unsigned data);
-    import "DPI-C" function void mb_backdoor_write_u32(string name, longint unsigned addr, int unsigned data);
-    import "DPI-C" function void mb_backdoor_read_u32(string name, longint unsigned addr, output int unsigned data);
-    import "DPI-C" function void mb_backdoor_write_u64(string name, longint unsigned addr, longint unsigned data);
-    import "DPI-C" function void mb_backdoor_read_u64(string name, longint unsigned addr, output longint unsigned data);
-    import "DPI-C" function void mb_backdoor_write_string(string name, longint unsigned addr, string data);
-    import "DPI-C" function void mb_backdoor_read_string(string name, longint unsigned addr, output string data);
+    import "DPI-C" function void mb_backdoor_write_u8(string space_name, longint unsigned addr, byte unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u8(string space_name, longint unsigned addr, output byte unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u16(string space_name, longint unsigned addr, shortint unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u16(string space_name, longint unsigned addr, output shortint unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u32(string space_name, longint unsigned addr, int unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u32(string space_name, longint unsigned addr, output int unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u64(string space_name, longint unsigned addr, longint unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u64(string space_name, longint unsigned addr, output longint unsigned data);
+    import "DPI-C" function void mb_backdoor_write_string(string space_name, longint unsigned addr, string data);
+    import "DPI-C" function void mb_backdoor_read_string(string space_name, longint unsigned addr, output string data);
     import "DPI-C" function void cluster_init(int unsigned num_cores);
     import "DPI-C" function void cluster_reset_core(int unsigned hartid, longint unsigned boot_addr);
     import "DPI-C" context task mb_server_run_async();
