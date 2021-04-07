@@ -2,6 +2,7 @@ extern crate lazy_static;
 extern crate mailbox_rs;
 use lazy_static::lazy_static;
 use mailbox_rs::{
+    export_mb_backdoor_dpi,
     mb_channel::*,
     mb_std::{futures::future::join, *},
 };
@@ -131,3 +132,5 @@ extern "C" fn mb_server_run_async() {
         join(w, s).await;
     });
 }
+
+export_mb_backdoor_dpi!(SPACES);

@@ -22,10 +22,20 @@
 `define DLM_ID 32'h1
 
 module TestModule(input bit clock);
+    import "DPI-C" function void mb_backdoor_write_u8(string name, longint unsigned addr, byte unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u8(string name, longint unsigned addr, output byte unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u16(string name, longint unsigned addr, shortint unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u16(string name, longint unsigned addr, output shortint unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u32(string name, longint unsigned addr, int unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u32(string name, longint unsigned addr, output int unsigned data);
+    import "DPI-C" function void mb_backdoor_write_u64(string name, longint unsigned addr, longint unsigned data);
+    import "DPI-C" function void mb_backdoor_read_u64(string name, longint unsigned addr, output longint unsigned data);
+    import "DPI-C" function void mb_backdoor_write_string(string name, longint unsigned addr, string data);
+    import "DPI-C" function void mb_backdoor_read_string(string name, longint unsigned addr, output string data);
     import "DPI-C" function void cluster_init(int unsigned num_cores);
     import "DPI-C" function void cluster_reset_core(int unsigned hartid, longint unsigned boot_addr);
     import "DPI-C" context task mb_server_run_async();
-    import "DPI-C" context task cluster_run_1step();
+    import "DPI-C" task cluster_run_1step();
     export "DPI-C" function mem_write_bd;
     export "DPI-C" function mem_read_bd;
     export "DPI-C" function mb_exit;
@@ -91,7 +101,78 @@ module TestModule(input bit clock);
         end
     end
 
+    function void test_bk_u8();
+        $display("test_bk_u8:");
+        $display("--------------------------");
+        for (int i = 0; i < 16; i++) begin
+            mb_backdoor_write_u8("core0", 64'h81000000 + {32'h0, i}, i[7:0]);
+        end
+        for (int i = 0; i < 20; i++) begin
+            bit[7:0] data;
+            mb_backdoor_read_u8("core0", 64'h81000000 + {32'h0, i}, data);
+            $display("buffer output %0d = 0x%0x", i, data);
+        end
+        $display("--------------------------");
+    endfunction
+
+    function void test_bk_u16();
+        $display("test_bk_u16:");
+        $display("--------------------------");
+        for (int i = 0; i < 16; i++) begin
+            mb_backdoor_write_u16("core0", 64'h81000000 + {32'h0, i} * 2, i[15:0] << 8);
+        end
+        for (int i = 0; i < 20; i++) begin
+            bit[15:0] data;
+            mb_backdoor_read_u16("core0", 64'h81000000 + {32'h0, i} * 2, data);
+            $display("buffer output %0d = 0x%0x", i, data);
+        end
+        $display("--------------------------");
+    endfunction
+
+    function void test_bk_u32();
+        $display("test_bk_u32:");
+        $display("--------------------------");
+        for (int i = 0; i < 16; i++) begin
+            mb_backdoor_write_u32("core0", 64'h81000000 + {32'h0, i} * 4, i << 24);
+        end
+        for (int i = 0; i < 20; i++) begin
+            bit[31:0] data;
+            mb_backdoor_read_u32("core0", 64'h81000000 + {32'h0, i} * 4, data);
+            $display("buffer output %0d = 0x%0x", i, data);
+        end
+        $display("--------------------------");
+    endfunction
+
+    function void test_bk_u64();
+        $display("test_bk_u32:");
+        $display("--------------------------");
+        for (int i = 0; i < 16; i++) begin
+            mb_backdoor_write_u64("core0", 64'h81000000 + {32'h0, i} * 8, {32'h0, i} << 56);
+        end
+        for (int i = 0; i < 20; i++) begin
+            bit[63:0] data;
+            mb_backdoor_read_u64("core0", 64'h81000000 + {32'h0, i} * 8, data);
+            $display("buffer output %0d = 0x%0x", i, data);
+        end
+        $display("--------------------------");
+    endfunction
+
+    function void test_bk_string();
+        string s="";
+        $display("test_bk_string:");
+        $display("--------------------------");
+        mb_backdoor_write_string("core0", 64'h81000000, "test_bk_string");
+        mb_backdoor_read_string("core0", 64'h81000000, s);
+        $display("string output %s", s);
+        $display("--------------------------");
+    endfunction
+
     function automatic void mb_exit(int unsigned code);
+        test_bk_u8();
+        test_bk_u16();
+        test_bk_u32();
+        test_bk_u64();
+        test_bk_string();
         $display("exit %0d!", code);
         $finish();
     endfunction
