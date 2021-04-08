@@ -6,7 +6,9 @@ use mailbox_rs::{
     },
 };
 pub struct WaitEvent;
-impl<RA: MBPtrReader, R: MBPtrResolver<READER = RA>> MBAsyncRPC<RA, R> for WaitEvent {
+impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA>>
+    MBAsyncRPC<RA, WA, R> for WaitEvent
+{
     fn poll_cmd(
         &self,
         server_name: &str,
@@ -39,7 +41,9 @@ impl<RA: MBPtrReader, R: MBPtrResolver<READER = RA>> MBAsyncRPC<RA, R> for WaitE
         }
     }
 }
-impl<RA: MBPtrReader, R: MBPtrResolver<READER = RA>> CustomAsycRPC<RA, R> for WaitEvent {
+impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA>>
+    CustomAsycRPC<RA, WA, R> for WaitEvent
+{
     fn is_me(&self, action: u32) -> bool {
         action == 0x8
     }
