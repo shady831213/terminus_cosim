@@ -6,10 +6,7 @@ use mailbox_rs::{
     mb_channel::*,
     mb_std::{futures::future::join, *},
 };
-use std::collections::HashMap;
 use std::env;
-use std::sync::Arc;
-use std::sync::Mutex;
 mod rpcs;
 use rpcs::*;
 
@@ -78,21 +75,24 @@ impl MBShareMemParser for DPIShareMemParser {
 }
 
 lazy_static! {
-    static ref SPACES: HashMap<String, Arc<Mutex<DPIShareMemSpace>>> = {
-        MBShareMemSpaceBuilder::<DPIShareMem, DPIShareMemParser>::new(
-            &env::var("MEM_CFG_FILE").unwrap(),
+    static ref MAILBOX_SYS: MBChannelShareMemSys<DPIShareMemSpace> = {
+        let spaces = {
+            MBShareMemSpaceBuilder::<DPIShareMem, DPIShareMemParser>::new(
+                &env::var("MEM_CFG_FILE").unwrap(),
+            )
+            .unwrap()
+            .build_shared()
+            .unwrap()
+            .build_spaces()
+            .unwrap()
+        };
+        MBChannelShareMemBuilder::<DPIShareMemSpace>::new(
+            &env::var("MAILBOX_CFG_FILE").unwrap(),
+            spaces,
         )
         .unwrap()
-        .build_shared()
+        .build()
         .unwrap()
-        .build_spaces()
-        .unwrap()
-    };
-    static ref MAILBOX_SYS: MBChannelShareMemSys<DPIShareMemSpace> = {
-        MBChannelShareMemBuilder::<DPIShareMemSpace>::new(&env::var("MAILBOX_CFG_FILE").unwrap())
-            .unwrap()
-            .build(&SPACES)
-            .unwrap()
     };
 }
 
@@ -119,7 +119,7 @@ fn mb_tick() {
 extern "C" fn mb_server_run() {
     async_std::task::block_on(async {
         let w = MAILBOX_SYS.wake(mb_tick);
-        let s = MAILBOX_SYS.serve(&SPACES, |server| server.add_cmd(WaitEvent));
+        let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
         join(w, s).await;
     })
 }
@@ -127,10 +127,10 @@ extern "C" fn mb_server_run() {
 #[no_mangle]
 extern "C" fn mb_server_run_async() {
     let w = MAILBOX_SYS.wake(mb_tick);
-    let s = MAILBOX_SYS.serve(&SPACES, |server| server.add_cmd(WaitEvent));
+    let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
     async_std::task::spawn(async move {
         join(w, s).await;
     });
 }
 
-export_mb_backdoor_dpi!(SPACES);
+export_mb_backdoor_dpi!(MAILBOX_SYS);
