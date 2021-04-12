@@ -16,7 +16,7 @@ This project is a cosim sulotion of ISA + verilog. It shows [terminus](https://g
 git clone https://github.com/shady831213/terminus_cosim
 cd terminus_cosim
 git submodule update --init
-./run.sh [hello_world|hello_world_c|trap|wait_event]
+./run.sh [hello_world|hello_world_c|trap|wait_event|svcall]
 ```
 
 Then you should get:
