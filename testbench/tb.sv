@@ -22,6 +22,7 @@
 `define DLM_ID 32'h1
 
 module TestModule(input bit clock);
+    import "DPI-C" function void mb_get_space(string ch_name, output string space_name);
     import "DPI-C" function void mb_backdoor_write_u8(string space_name, longint unsigned addr, byte unsigned data);
     import "DPI-C" function void mb_backdoor_read_u8(string space_name, longint unsigned addr, output byte unsigned data);
     import "DPI-C" function void mb_backdoor_write_u16(string space_name, longint unsigned addr, shortint unsigned data);
@@ -47,6 +48,7 @@ module TestModule(input bit clock);
     export "DPI-C" task cluster_ext_read_u32;
     export "DPI-C" task cluster_ext_write_u64;
     export "DPI-C" task cluster_ext_read_u64;
+    export "DPI-C" function tb_sv_call;    
     export "DPI-C" function poll_event;
 
     bit [7:0] global[`GLOBAL_SIZE];
@@ -249,6 +251,47 @@ module TestModule(input bit clock);
 
 
     bit event_table[10];
+
+function automatic int unsigned tb_sv_call(string ch_name, 
+                                        string method, 
+                                        int unsigned arg_len, 
+                                        int unsigned arg0,
+                                        int unsigned arg1,
+                                        int unsigned arg2,
+                                        int unsigned arg3,
+                                        output int unsigned status);
+        string space;
+        mb_get_space(ch_name, space);
+        if (method == "sv_display1") begin
+            return sv_display1(space, arg0, arg1, status);
+        end
+        else if (method == "sv_display2") begin
+            return sv_display2(space, arg0, status);
+        end
+        else begin
+            return 1;
+        end
+    endfunction
+
+    function int unsigned sv_display1(string space, int unsigned arg0, int unsigned arg1, output int unsigned status);
+        string msg;
+        if (!event_table[arg1]) begin
+            status = 1;
+            return 0;
+        end
+        mb_backdoor_read_string(space, {32'b0, arg0}, msg);
+        $display("[sv_display1] %s, event %d, @%t", msg, arg1, $time);
+        status = 0;
+        return 0;
+    endfunction
+
+    function int unsigned sv_display2(string space, int unsigned arg0, output int unsigned status);
+        string msg;
+        mb_backdoor_read_string(space, {32'b0, arg0}, msg);
+        $display("[sv_display2] %s, @%t", msg, $time);
+        status = 0;
+        return 0;
+    endfunction
 
     always@(posedge clock) begin
         for (int i = 0; i < 10; i++) begin

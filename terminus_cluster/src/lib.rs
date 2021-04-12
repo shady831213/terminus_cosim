@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 extern crate paste;
 extern crate terminus;
 use std::rc::Rc;

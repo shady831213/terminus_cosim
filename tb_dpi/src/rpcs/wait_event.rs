@@ -24,10 +24,7 @@ impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA
                 // println!("{} waiting event num:{}!", server_name, req.args[1]);
                 Poll::Pending
             }
-            0xffffffff => panic!(format!(
-                "{} event num {} not support!",
-                server_name, req.args[1]
-            )),
+            0xffffffff => panic!("{} event num {} not support!", server_name, req.args[1]),
             x => {
                 let mut resp = MBRespEntry::default();
                 resp.words = 1;

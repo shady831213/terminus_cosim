@@ -134,3 +134,33 @@ extern "C" fn mb_server_run_async() {
 }
 
 export_mb_backdoor_dpi!(MAILBOX_SYS);
+
+#[no_mangle]
+pub unsafe extern "C" fn __mb_sv_call(
+    ch_name: *const std::os::raw::c_char,
+    method: *const std::os::raw::c_char,
+    arg_len: u32,
+    args: *const MBPtrT,
+    status: &mut u32,
+) -> MBPtrT {
+    extern "C" {
+        fn tb_sv_call(
+            ch_name: *const std::os::raw::c_char,
+            method: *const std::os::raw::c_char,
+            arg_len: u32,
+            arg0: u32,
+            arg1: u32,
+            arg2: u32,
+            arg3: u32,
+            status: &mut u32,
+        ) -> MBPtrT;
+    }
+    tb_sv_call(ch_name, 
+            method, 
+            arg_len, 
+            *args,
+            *((args as usize + 4) as *const MBPtrT), 
+            *((args as usize + 8) as *const MBPtrT), 
+            *((args as usize + 0xc)as *const MBPtrT), 
+            status)
+}
