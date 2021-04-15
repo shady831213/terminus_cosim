@@ -24,5 +24,6 @@ make -C ${CUR_DIR}/obj_dir -f VTestModule.mk
 
 MAILBOX_CFG_FILE=${CUR_DIR}/testbench/mailbox_cfg.yaml \
 MEM_CFG_FILE=${CUR_DIR}/testbench/mem_cfg.yaml \
+MAILBOX_FS_ROOT=${CUR_DIR}/mb_fs_root \
 ELF_FILE=${CUR_DIR}/vfw_rs/platform/terminus_cosim/target/$TESTNAME/$TESTNAME \
 ./test

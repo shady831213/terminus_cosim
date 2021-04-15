@@ -3,7 +3,7 @@ extern crate mailbox_rs;
 use lazy_static::lazy_static;
 use mailbox_rs::{
     export_mb_backdoor_dpi,
-    mb_channel::*,
+    mb_rpcs::*,
     mb_std::{futures::future::join, *},
 };
 use std::env;
@@ -91,8 +91,11 @@ lazy_static! {
             spaces,
         )
         .unwrap()
-        .build()
+        .cfg_channels()
         .unwrap()
+        .fs(&env::var("MAILBOX_FS_ROOT").unwrap())
+        .unwrap()
+        .build()
     };
 }
 
