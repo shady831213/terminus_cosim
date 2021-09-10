@@ -11,5 +11,5 @@ name = "terminus_cluster"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
-terminus = {git = "https://github.com/shady831213/terminus"}
+terminus = {git = "https://github.com/shady831213/terminus", branch="edition2018"}
 paste = "1"
