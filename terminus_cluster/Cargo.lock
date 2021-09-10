@@ -724,7 +724,7 @@ dependencies = [
 [[package]]
 name = "terminus"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus#49f6361a43e65684c218df53bdf997a1a0f75193"
+source = "git+https://github.com/shady831213/terminus#0d6632311c37aa565d2764f5cab08d1f91f97f8c"
 dependencies = [
  "clap",
  "linkme",
@@ -740,7 +740,7 @@ dependencies = [
 [[package]]
 name = "terminus-macros"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#35c56e1007b0a16f6887fedb01d95919bef4bd70"
+source = "git+https://github.com/shady831213/terminus_vault#7581b90f4042b0fff2b0ee1cf1837182e481e139"
 dependencies = [
  "bitfield",
  "lazy_static",
@@ -750,7 +750,7 @@ dependencies = [
 [[package]]
 name = "terminus-proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#35c56e1007b0a16f6887fedb01d95919bef4bd70"
+source = "git+https://github.com/shady831213/terminus_vault#7581b90f4042b0fff2b0ee1cf1837182e481e139"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -762,7 +762,7 @@ dependencies = [
 [[package]]
 name = "terminus-spaceport"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_spaceport#b2303a280212381b28306b38a59e18d298398d72"
+source = "git+https://github.com/shady831213/terminus_spaceport#895cc1eef145149ca3e6fa0bf21799252a9bc947"
 dependencies = [
  "cc",
  "ctrlc",
@@ -778,7 +778,7 @@ dependencies = [
 [[package]]
 name = "terminus-spaceport-proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_spaceport#b2303a280212381b28306b38a59e18d298398d72"
+source = "git+https://github.com/shady831213/terminus_spaceport#895cc1eef145149ca3e6fa0bf21799252a9bc947"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -788,7 +788,7 @@ dependencies = [
 [[package]]
 name = "terminus-vault"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#35c56e1007b0a16f6887fedb01d95919bef4bd70"
+source = "git+https://github.com/shady831213/terminus_vault#7581b90f4042b0fff2b0ee1cf1837182e481e139"
 dependencies = [
  "terminus-macros",
  "terminus-proc-macros",
