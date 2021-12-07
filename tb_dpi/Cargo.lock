@@ -488,7 +488,7 @@ dependencies = [
 [[package]]
 name = "mailbox_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/mailbox_rs#0417248a521fb5a214ab104c08e952ddee9aaf88"
+source = "git+https://github.com/shady831213/mailbox_rs#9b809e9bceb54c5478f09f3356936cb15b431a68"
 dependencies = [
  "async-std",
  "futures",
