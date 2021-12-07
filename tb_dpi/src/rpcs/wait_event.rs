@@ -15,7 +15,7 @@ impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA
         _r: &R,
         req: &MBReqEntry,
         _cx: &mut Context,
-    ) -> Poll<Option<MBRespEntry>> {
+    ) -> Poll<MBAsyncRPCResult> {
         extern "C" {
             fn poll_event(id: u32) -> u32;
         }
@@ -33,7 +33,7 @@ impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA
                     "{} event num:{} ready, resp {}!",
                     server_name, req.args[1], x
                 );
-                Poll::Ready(Some(resp))
+                Poll::Ready(Ok(resp))
             }
         }
     }
