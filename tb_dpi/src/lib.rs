@@ -14,7 +14,6 @@ type DPIShareMemSpace = MBShareMemSpace<DPIShareMem>;
 
 #[derive(Debug)]
 struct DPIShareMem {
-    name: String,
     id: u32,
     base: MBPtrT,
     size: MBPtrT,
@@ -58,9 +57,8 @@ impl MBShareMem for DPIShareMem {
 struct DPIShareMemParser;
 impl MBShareMemParser for DPIShareMemParser {
     type MemType = DPIShareMem;
-    fn parse(&self, key: &str, doc: &Yaml) -> Result<Self::MemType, String> {
+    fn parse(&self, _key: &str, doc: &Yaml) -> Result<Self::MemType, String> {
         Ok(DPIShareMem {
-            name: key.to_string(),
             id: doc["id"]
                 .as_i64()
                 .ok_or("id should be integer!".to_string())? as u32,

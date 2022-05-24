@@ -8,7 +8,7 @@ cargo build --release
 cd ${CUR_DIR}/tb_dpi
 #proxychains cargo update
 cargo build --release
-cd ${CUR_DIR}/vfw_rs/platform/terminus_cosim
+cd ${CUR_DIR}/vfw_rs/platform/terminus_cosim/terminus_cosim_tests
 #proxychains cargo update --workspace
 ./build.sh $TESTNAME
 cd ${CUR_DIR}
