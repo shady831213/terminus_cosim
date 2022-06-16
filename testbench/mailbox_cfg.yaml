@@ -1,11 +1,14 @@
 core0:
   space: core0
   elf: ${ELF_FILE}
+  mb_id: 0
 core1:
   space: core1
   elf: ${ELF_FILE}
+  mb_id: 1
   load: false
 core2:
   space: core2
   elf: ${ELF_FILE}
+  mb_id: 2
   load: false
