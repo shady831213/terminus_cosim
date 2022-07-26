@@ -436,7 +436,7 @@ dependencies = [
 [[package]]
 name = "terminus"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus#e99515be6d9cc8fbda01e5ebc3e0182556d970c9"
+source = "git+https://github.com/shady831213/terminus#57591d359b9d9b9f1062ad740419cc3e27bf14e7"
 dependencies = [
  "clap",
  "linkme",
