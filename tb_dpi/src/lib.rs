@@ -98,7 +98,7 @@ lazy_static! {
 }
 
 #[no_mangle]
-extern "C" fn __mb_exit(code: u32) {
+extern "C" fn __mb_exit(_ch_name: *const std::os::raw::c_char, code: u32) {
     extern "C" {
         fn mb_exit(code: u32);
     }
