@@ -137,7 +137,7 @@ extern "C" fn mb_server_run_async() {
 export_mb_backdoor_dpi!(MAILBOX_SYS);
 
 #[no_mangle]
-pub unsafe extern "C" fn __mb_sv_call(
+pub unsafe extern "C" fn __mb_call(
     ch_name: *const std::os::raw::c_char,
     method: *const std::os::raw::c_char,
     arg_len: u32,
