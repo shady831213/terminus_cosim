@@ -26,6 +26,9 @@ static mut CLUSTER: Cluster = Cluster {
 extern "C" fn cluster_init(num_cores: u32) {
     let configs = vec![
         ProcessorCfg {
+            #[cfg(feature = "rv64")]
+            xlen: XLen::X64,
+            #[cfg(not(feature = "rv64"))]
             xlen: XLen::X32,
             enable_dirty: true,
             extensions: vec!['m', 'a', 'c'].into_boxed_slice(),
@@ -53,13 +56,16 @@ extern "C" fn cluster_init(num_cores: u32) {
         .space_mut()
         .add_region(
             "clint",
-            &Region::remap(0x02000000, &Region::io(0, 0x000c0000, Box::new(Clint::new(&clint)))),
+            &Region::remap(
+                0x02000000,
+                &Region::io(0, 0x000c0000, Box::new(Clint::new(&clint))),
+            ),
         )
         .unwrap();
     for cfg in configs {
         let core_bus = Rc::new(CoreBus::new(
             &sys_bus,
-            format!("core{}",unsafe { CLUSTER.processors.len() }),
+            format!("core{}", unsafe { CLUSTER.processors.len() }),
             unsafe { CLUSTER.processors.len() } as u32,
             MemInfo {
                 base: 0,

@@ -1,5 +1,6 @@
-use mailbox_rs::{
+use vhost::mailbox_rs::{
     mb_channel::*,
+    mb_rpcs::MBPtrT,
     mb_std::{
         async_std::task::{Context, Poll},
         *,
@@ -19,7 +20,7 @@ impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA
         extern "C" {
             fn poll_event(id: u32) -> u32;
         }
-        match unsafe { poll_event(req.args[1]) } {
+        match unsafe { poll_event(req.args[1] as u32) } {
             0 => {
                 // println!("{} waiting event num:{}!", server_name, req.args[1]);
                 Poll::Pending
@@ -28,7 +29,7 @@ impl<RA: MBPtrReader, WA: MBPtrWriter, R: MBPtrResolver<READER = RA, WRITER = WA
             x => {
                 let mut resp = MBRespEntry::default();
                 resp.words = 1;
-                resp.rets = x;
+                resp.rets = x as MBPtrT;
                 println!(
                     "{} event num:{} ready, resp {}!",
                     server_name, req.args[1], x

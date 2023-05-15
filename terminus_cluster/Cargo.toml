@@ -13,3 +13,6 @@ crate-type = ["staticlib", "cdylib"]
 [dependencies]
 terminus = {git = "https://github.com/shady831213/terminus"}
 paste = "1"
+
+[features]
+rv64 = []

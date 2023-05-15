@@ -11,5 +11,12 @@ name = "tb_dpi"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
-mailbox_rs = { git = "https://github.com/shady831213/mailbox_rs", features = ["std", "ptr32"]}
+vhost = { git = "https://github.com/shady831213/vhost", optional=true}
 lazy_static = { version = "1"}
+
+[build-dependencies]
+v_build_utils = {git = "https://github.com/shady831213/v_build_utils"}
+
+[features]
+ptr64 = ["vhost/ptr64"]
+ptr32 = ["vhost/ptr32"]
