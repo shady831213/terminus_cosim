@@ -1,16 +1,45 @@
+extern crate lazy_static;
+extern crate mailbox_rs;
 use lazy_static::lazy_static;
-use vhost::{
-    mailbox_init,
-    mailbox_rs::{self, mb_std::*},
-    mb_server_run as _mb_server_run, mb_server_run_async as _mb_server_run_async, VHostMb,
+use mailbox_rs::{
+    export_mb_backdoor_dpi,
+    mb_rpcs::*,
+    mb_std::{futures::future::join, *},
 };
+use std::env;
 mod rpcs;
+use rpcs::*;
+mod mem;
+
+type DPIShareMemSpace = MBShareMemSpace<mem::simple::DPIShareMem>;
+
 lazy_static! {
-    static ref MAILBOX_SYS: VHostMb = mailbox_init(|_| Ok(()), |_| Ok(()), |_| Ok(()));
+    static ref MAILBOX_SYS: MBChannelShareMemSys<DPIShareMemSpace> = {
+        let spaces = {
+            MBShareMemSpaceBuilder::<mem::simple::DPIShareMem, mem::simple::DPIShareMemParser>::new(
+                &env::var("MEM_CFG_FILE").unwrap(),
+            )
+            .unwrap()
+            .build_shared()
+            .unwrap()
+            .build_spaces()
+            .unwrap()
+        };
+        MBChannelShareMemBuilder::<DPIShareMemSpace>::new(
+            &env::var("MAILBOX_CFG_FILE").unwrap(),
+            spaces,
+        )
+        .unwrap()
+        .cfg_channels()
+        .unwrap()
+        .fs(&env::var("MAILBOX_FS_ROOT").unwrap())
+        .unwrap()
+        .build()
+    };
 }
 
 #[no_mangle]
-extern "C" fn __mb_exit(code: u32) {
+extern "C" fn __mb_exit(_ch_name: *const std::os::raw::c_char, code: u32) {
     extern "C" {
         fn mb_exit(code: u32);
     }
@@ -19,23 +48,63 @@ extern "C" fn __mb_exit(code: u32) {
     }
 }
 
+fn mb_tick() {
+    extern "C" {
+        fn mb_step();
+    }
+    unsafe {
+        mb_step();
+    }
+}
+
 #[no_mangle]
 extern "C" fn mb_server_run() {
-    _mb_server_run(
-        &MAILBOX_SYS,
-        || {},
-        |server| server.add_cmd(rpcs::WaitEvent),
-    )
+    async_std::task::block_on(async {
+        let w = MAILBOX_SYS.wake(mb_tick);
+        let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
+        join(w, s).await;
+    })
 }
 
 #[no_mangle]
 extern "C" fn mb_server_run_async() {
-    _mb_server_run_async(
-        &MAILBOX_SYS,
-        || {},
-        |server| server.add_cmd(rpcs::WaitEvent),
-    )
+    let w = MAILBOX_SYS.wake(mb_tick);
+    let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
+    async_std::task::spawn(async move {
+        join(w, s).await;
+    });
 }
 
-use mailbox_rs::export_mb_backdoor_dpi;
 export_mb_backdoor_dpi!(MAILBOX_SYS);
+
+#[no_mangle]
+pub unsafe extern "C" fn __mb_call(
+    ch_name: *const std::os::raw::c_char,
+    method: *const std::os::raw::c_char,
+    arg_len: u32,
+    args: *const MBPtrT,
+    status: &mut u32,
+) -> MBPtrT {
+    extern "C" {
+        fn tb_sv_call(
+            ch_name: *const std::os::raw::c_char,
+            method: *const std::os::raw::c_char,
+            arg_len: u32,
+            arg0: u32,
+            arg1: u32,
+            arg2: u32,
+            arg3: u32,
+            status: &mut u32,
+        ) -> MBPtrT;
+    }
+    tb_sv_call(
+        ch_name,
+        method,
+        arg_len,
+        *args as u32,
+        *((args as usize + 4) as *const MBPtrT) as u32,
+        *((args as usize + 8) as *const MBPtrT) as u32,
+        *((args as usize + 0xc) as *const MBPtrT) as u32,
+        status,
+    )
+}

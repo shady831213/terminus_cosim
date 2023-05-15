@@ -1,0 +1,16 @@
+[target.riscv32imac-unknown-none-elf]
+rustflags = [
+    "-C", "link-arg=-Tvfw.x",
+    "-C", "link-arg=-Tmailbox.x",
+    "-C", "link-arg=-Tterminus_cosim.x",
+]
+
+[target.riscv64gc-unknown-none-elf]
+rustflags = [
+    "-C", "link-arg=-Tvfw.x",
+    "-C", "link-arg=-Tmailbox.x",
+    "-C", "link-arg=-Tterminus_cosim.x",
+]
+
+[net]
+git-fetch-with-cli = true

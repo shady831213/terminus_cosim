@@ -1,4 +1,4 @@
-use vhost::mailbox_rs::{
+use mailbox_rs::{
     mb_channel::*,
     mb_rpcs::MBPtrT,
     mb_std::{
