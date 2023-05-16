@@ -8,7 +8,7 @@ fn main() {
             if env::var("CARGO_CFG_TARGET_ARCH").unwrap() == "riscv64" {
                 builder.flag("-mabi=lp64d")
             } else {
-                builder.flag("-mabi=ilp32d")
+                builder
             }
             .flag("-lto")
             .includes(&incdir)
