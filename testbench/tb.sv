@@ -7,7 +7,7 @@
 `endif
 
 `ifndef GLOBAL_BASE
-`define GLOBAL_BASE 32'h70000000
+`define GLOBAL_BASE 32'h80000000
 `endif
 
 `ifndef GLOBAL_SIZE
@@ -81,9 +81,9 @@ module TestModule(input bit clock);
 
     initial begin
         cluster_init(3);
-        cluster_reset_core(0, 64'h70000000);
-        cluster_reset_core(1, 64'h70000000);
-        cluster_reset_core(2, 64'h70000000);
+        cluster_reset_core(0, 64'h80000000);
+        cluster_reset_core(1, 64'h80000000);
+        cluster_reset_core(2, 64'h80000000);
     end
 
     always @(posedge clock) begin

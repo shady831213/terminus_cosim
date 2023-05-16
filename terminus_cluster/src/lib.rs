@@ -42,7 +42,7 @@ extern "C" fn cluster_init(num_cores: u32) {
     let ext_bus = Box::new(ExtBus {
         name: "global".to_string(),
         id: 0x1000,
-        base: 0x70000000,
+        base: 0x80000000,
         size: 0x80000000,
     });
     sys_bus
