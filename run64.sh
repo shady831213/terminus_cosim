@@ -11,7 +11,7 @@ cargo build --release --features="ptr64"
 cd ${CUR_DIR}/vfw
 #proxychains cargo update --workspace
 TESTNAME=$TESTNAME RISCV_TOOLCHAIN_PREFIX=riscv64-unknown-elf- cargo build -p terminus_cosim_tests  -Zunstable-options --release --out-dir target/$TESTNAME --bin $TESTNAME --target riscv64gc-unknown-none-elf
-${RUSTUP_HOME}/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/x86_64-unknown-linux-gnu/bin/llvm-objdump -D target/$TESTNAME/$TESTNAME >| target/$TESTNAME/$TESTNAME.dump
+${RISCV_TOOLCHAIN_PREFIX}objdump -D target/$TESTNAME/$TESTNAME >| target/$TESTNAME/$TESTNAME.dump
 cd ${CUR_DIR}
 
 rm -rf ${CUR_DIR}/obj_dir

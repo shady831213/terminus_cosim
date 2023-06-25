@@ -59,7 +59,6 @@ module TestModule(input bit clock);
     bit [7:0] core2_ilm[`ILM_SIZE];
     bit [7:0] core2_dlm[`DLM_SIZE];
 
-    bit clock;
     bit tb_clock;
    
     bit reset_n;
