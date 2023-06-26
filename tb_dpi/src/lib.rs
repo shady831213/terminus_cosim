@@ -4,7 +4,10 @@ use lazy_static::lazy_static;
 use mailbox_rs::{
     export_mb_backdoor_dpi,
     mb_rpcs::*,
-    mb_std::{futures::future::join, *},
+    mb_std::{
+        futures::future::{join, join_all},
+        *,
+    },
 };
 use std::env;
 mod rpcs;
@@ -48,20 +51,21 @@ extern "C" fn __mb_exit(_ch_name: *const std::os::raw::c_char, code: u32) {
     }
 }
 
-fn mb_tick() {
+fn mb_tick() -> bool {
     extern "C" {
         fn mb_step();
     }
     unsafe {
         mb_step();
     }
+    false
 }
 
 #[no_mangle]
 extern "C" fn mb_server_run() {
     async_std::task::block_on(async {
         let w = MAILBOX_SYS.wake(mb_tick);
-        let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
+        let s = join_all(MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent)));
         join(w, s).await;
     })
 }
@@ -69,7 +73,7 @@ extern "C" fn mb_server_run() {
 #[no_mangle]
 extern "C" fn mb_server_run_async() {
     let w = MAILBOX_SYS.wake(mb_tick);
-    let s = MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent));
+    let s = join_all(MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent)));
     async_std::task::spawn(async move {
         join(w, s).await;
     });
