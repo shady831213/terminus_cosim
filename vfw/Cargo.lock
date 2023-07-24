@@ -198,7 +198,7 @@ checksum = "b06a4cde4c0f271a446782e3eff8de789548ce57dbc8eca9292c27f4a42004b4"
 [[package]]
 name = "mailbox_rs"
 version = "0.2.0"
-source = "git+https://github.com/shady831213/mailbox_rs#c2527a633b52c1ce4c8d23bdc0ec984912584a2e"
+source = "git+https://github.com/shady831213/mailbox_rs#7cb6112b59fc1310a713612da9babaf1a568d8f7"
 dependencies = [
  "konst",
  "nb 1.1.0",
@@ -525,7 +525,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#9f3868f16bd8aff3d36fbef7dcab02a93d1ec022"
+source = "git+https://github.com/shady831213/vfw_rs#9e1accad8d7fcd0831a49271e62a1a3acf4644ce"
 dependencies = [
  "buddy_system_allocator",
  "riscv 0.10.1",
@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#9f3868f16bd8aff3d36fbef7dcab02a93d1ec022"
+source = "git+https://github.com/shady831213/vfw_rs#9e1accad8d7fcd0831a49271e62a1a3acf4644ce"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -551,7 +551,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#9f3868f16bd8aff3d36fbef7dcab02a93d1ec022"
+source = "git+https://github.com/shady831213/vfw_rs#9e1accad8d7fcd0831a49271e62a1a3acf4644ce"
 dependencies = [
  "mailbox_rs",
  "riscv 0.10.1",
@@ -562,7 +562,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#9f3868f16bd8aff3d36fbef7dcab02a93d1ec022"
+source = "git+https://github.com/shady831213/vfw_rs#9e1accad8d7fcd0831a49271e62a1a3acf4644ce"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -570,7 +570,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#9f3868f16bd8aff3d36fbef7dcab02a93d1ec022"
+source = "git+https://github.com/shady831213/vfw_rs#9e1accad8d7fcd0831a49271e62a1a3acf4644ce"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
