@@ -41,16 +41,6 @@ lazy_static! {
     };
 }
 
-#[no_mangle]
-extern "C" fn __mb_exit(_ch_name: *const std::os::raw::c_char, code: u32) {
-    extern "C" {
-        fn mb_exit(code: u32);
-    }
-    unsafe {
-        mb_exit(code);
-    }
-}
-
 fn mb_tick() -> bool {
     extern "C" {
         fn mb_step();
@@ -61,11 +51,26 @@ fn mb_tick() -> bool {
     false
 }
 
+extern "C" {
+    fn mb_exit(code: u32);
+}
+
 #[no_mangle]
 extern "C" fn mb_server_run() {
     async_std::task::block_on(async {
         let w = MAILBOX_SYS.wake(mb_tick);
-        let s = join_all(MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent)));
+        let s = join_all(
+            MAILBOX_SYS
+                .serve(|server| server.add_cmd(WaitEvent))
+                .into_iter()
+                .map(|f| async {
+                    let (name, status) = f.await;
+                    println!("{} exit!", name);
+                    unsafe {
+                        mb_exit(status);
+                    }
+                }),
+        );
         join(w, s).await;
     })
 }
@@ -73,7 +78,18 @@ extern "C" fn mb_server_run() {
 #[no_mangle]
 extern "C" fn mb_server_run_async() {
     let w = MAILBOX_SYS.wake(mb_tick);
-    let s = join_all(MAILBOX_SYS.serve(|server| server.add_cmd(WaitEvent)));
+    let s = join_all(
+        MAILBOX_SYS
+            .serve(|server| server.add_cmd(WaitEvent))
+            .into_iter()
+            .map(|f| async {
+                let (name, status) = f.await;
+                println!("{} exit!", name);
+                unsafe {
+                    mb_exit(status);
+                }
+            }),
+    );
     async_std::task::spawn(async move {
         join(w, s).await;
     });
