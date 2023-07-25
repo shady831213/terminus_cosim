@@ -56,26 +56,6 @@ extern "C" {
 }
 
 #[no_mangle]
-extern "C" fn mb_server_run() {
-    async_std::task::block_on(async {
-        let w = MAILBOX_SYS.wake(mb_tick);
-        let s = join_all(
-            MAILBOX_SYS
-                .serve(|server| server.add_cmd(WaitEvent))
-                .into_iter()
-                .map(|f| async {
-                    let (name, status) = f.await;
-                    println!("{} exit!", name);
-                    unsafe {
-                        mb_exit(status);
-                    }
-                }),
-        );
-        join(w, s).await;
-    })
-}
-
-#[no_mangle]
 extern "C" fn mb_server_run_async() {
     let w = MAILBOX_SYS.wake(mb_tick);
     let s = join_all(
