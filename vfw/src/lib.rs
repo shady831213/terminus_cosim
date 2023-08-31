@@ -49,9 +49,13 @@ fn pre_init() {
     init_trap(TrapMode::Vectored);
 }
 
+#[no_mangle]
+pub fn __print_str(s: &str) {
+    mailbox_print_str(s)
+}
+
 #[export_name = "__boot_core_init"]
 fn boot_core_init() {
-    init_print_str(mailbox_print_str);
     set_arch_task_run(run_task);
 }
 
