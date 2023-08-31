@@ -5,6 +5,7 @@ pub use vfw_rs::vfw_core::*;
 pub use vfw_rs::vfw_hal::{embedded_hal, nb};
 pub use vfw_rs::vfw_mailbox::*;
 pub use vfw_rs::vfw_primitives::*;
+extern crate alloc;
 const CLINT_BASE: usize = 0x02000000;
 #[export_name = "__hart_id"]
 fn hart_id() -> usize {
@@ -47,6 +48,12 @@ fn exit(code: u32) -> ! {
 fn pre_init() {
     mailbox_init();
     init_trap(TrapMode::Vectored);
+}
+
+#[no_mangle]
+pub fn __print_args(args: &core::fmt::Arguments) {
+    use alloc::string::ToString;
+    mailbox_print_str(&args.to_string())
 }
 
 #[no_mangle]
