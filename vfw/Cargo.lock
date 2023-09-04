@@ -201,7 +201,7 @@ checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 [[package]]
 name = "mailbox_rs"
 version = "0.2.0"
-source = "git+https://github.com/shady831213/mailbox_rs#0a048cab8ced4a5f5e742e76e93ec7f3b8a39501"
+source = "git+https://github.com/shady831213/mailbox_rs#b856f63a64df08ce271b95f45aaa92c816291b5c"
 dependencies = [
  "konst",
  "nb 1.1.0",
