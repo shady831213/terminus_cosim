@@ -22,7 +22,7 @@ fn restore_flag(flag: usize) {
     rv_restore_flag(flag)
 }
 
-pub static CLINT: Clint = Clint::new(CLINT_BASE);
+pub static CLINT: Clint = Clint::new(CLINT_BASE, true);
 
 #[export_name = "__wait_ipi"]
 fn wait_ipi() {
