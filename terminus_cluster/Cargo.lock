@@ -436,7 +436,7 @@ dependencies = [
 [[package]]
 name = "terminus"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus#57591d359b9d9b9f1062ad740419cc3e27bf14e7"
+source = "git+https://github.com/shady831213/terminus#f454994eea5278e07334c7d71170c2fb0b3b0732"
 dependencies = [
  "clap",
  "linkme",
@@ -452,7 +452,7 @@ dependencies = [
 [[package]]
 name = "terminus-macros"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#9f8619548a52eedf7faad0d1a395cd49c0c73b11"
+source = "git+https://github.com/shady831213/terminus_vault#e68555e6325a9e5e579806b09b25648a7af84956"
 dependencies = [
  "bitfield",
  "lazy_static",
@@ -462,7 +462,7 @@ dependencies = [
 [[package]]
 name = "terminus-proc-macros"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#9f8619548a52eedf7faad0d1a395cd49c0c73b11"
+source = "git+https://github.com/shady831213/terminus_vault#e68555e6325a9e5e579806b09b25648a7af84956"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -500,7 +500,7 @@ dependencies = [
 [[package]]
 name = "terminus-vault"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/terminus_vault#9f8619548a52eedf7faad0d1a395cd49c0c73b11"
+source = "git+https://github.com/shady831213/terminus_vault#e68555e6325a9e5e579806b09b25648a7af84956"
 dependencies = [
  "terminus-macros",
  "terminus-proc-macros",
