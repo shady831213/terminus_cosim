@@ -7,27 +7,13 @@ pub use vfw_rs::vfw_mailbox::*;
 pub use vfw_rs::vfw_primitives::*;
 extern crate alloc;
 const CLINT_BASE: usize = 0x02000000;
-#[export_name = "__hart_id"]
-fn hart_id() -> usize {
-    rv_hart_id()
-}
-
-#[export_name = "__save_flag"]
-fn save_flag() -> usize {
-    rv_save_flag()
-}
-
-#[export_name = "__restore_flag"]
-fn restore_flag(flag: usize) {
-    rv_restore_flag(flag)
-}
 
 pub static CLINT: Clint = Clint::new(CLINT_BASE, true);
 
 #[export_name = "__wait_ipi"]
 fn wait_ipi() {
     rv_wait_ipi();
-    clint_clear_soft(rv_hart_id())
+    clint_clear_soft(hartid())
 }
 
 #[export_name = "__send_ipi"]
@@ -60,20 +46,8 @@ pub fn __print_args(args: &core::fmt::Arguments) {
 pub fn __print_str(s: &str) {
     mailbox_print_str(s)
 }
-
-#[export_name = "__boot_core_init"]
-fn boot_core_init() {
-    set_arch_task_run(run_task);
-}
-
-#[export_name = "__mem_invalid"]
-fn mem_invalid(_start: usize, _size: usize) {}
-
-#[export_name = "__mem_flush"]
-fn mem_flush(_start: usize, _size: usize) {}
-
-#[export_name = "__mem_wb"]
-pub fn mem_wb(_start: usize, _size: usize) {}
+#[no_mangle]
+fn __boot_core_init() {}
 
 #[export_name = "__init_bss"]
 fn init_bss(s: *mut u8, n: usize) {

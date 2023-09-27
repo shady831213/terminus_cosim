@@ -7,7 +7,8 @@ links = "terminus_cosim"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-vfw_rs = {git = "https://github.com/shady831213/vfw_rs", features=["max_chs_1", "full_panic", "max_cores_4", "reloc"]}
+vfw_rs = {git = "https://github.com/shady831213/vfw_rs", branch="fast_trap", features=["max_chs_1", "full_panic", "max_cores_4", "reloc"]}
+
 
 [build-dependencies]
 vfw_build_utils = {git = "https://github.com/shady831213/vfw_build_utils"}
