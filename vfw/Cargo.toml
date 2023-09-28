@@ -9,7 +9,6 @@ links = "terminus_cosim"
 [dependencies]
 vfw_rs = {git = "https://github.com/shady831213/vfw_rs", branch="fast_trap", features=["max_chs_1", "full_panic", "max_cores_4", "reloc"]}
 
-
 [build-dependencies]
 vfw_build_utils = {git = "https://github.com/shady831213/vfw_build_utils"}
 

@@ -13,10 +13,18 @@ fn trap_test() -> u32 {
 }
 
 #[no_mangle]
-extern "C" fn my_exp_handler(trap_frame: &mut TrapFrame) {
+extern "C" fn my_exp_handler(
+    _ctx: fast_trap::FastContext,
+    _a1: usize,
+    _a2: usize,
+    _a3: usize,
+    _a4: usize,
+    _a5: usize,
+    _a6: usize,
+    _a7: usize,
+) {
     println!("mepc:{:#x?}", mepc::read());
     println!("exception cuase:{:#x?}", mcause::read().cause());
-    println!("frame:{:#x?}", trap_frame);
     mepc::write(mepc::read().wrapping_add(4));
     println!("mepc:{:#x?}", mepc::read());
 }

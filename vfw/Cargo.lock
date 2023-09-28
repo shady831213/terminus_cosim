@@ -242,6 +242,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
 
 [[package]]
+name = "paste"
+version = "1.0.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
+
+[[package]]
 name = "pest"
 version = "2.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -535,10 +541,11 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "buddy_system_allocator",
  "fast-trap",
+ "paste",
  "riscv 0.10.1",
  "rustsbi",
  "serde",
@@ -549,7 +556,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -561,7 +568,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "mailbox_rs",
  "riscv 0.10.1",
@@ -572,7 +579,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -580,7 +587,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
@@ -593,7 +600,7 @@ dependencies = [
 [[package]]
 name = "vfw_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#b222453502058ba117b10076c2c918a129d7b025"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
 dependencies = [
  "vfw_build_utils",
  "vfw_primitives",
