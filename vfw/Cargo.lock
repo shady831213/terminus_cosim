@@ -541,7 +541,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "buddy_system_allocator",
  "fast-trap",
@@ -556,7 +556,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -568,7 +568,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "mailbox_rs",
  "riscv 0.10.1",
@@ -579,7 +579,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -587,7 +587,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
@@ -600,7 +600,7 @@ dependencies = [
 [[package]]
 name = "vfw_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#0495c3ce39025f94f18ec25603b0aed87e16a3b4"
+source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#57760be442918318efc519dd4a8754fb48861249"
 dependencies = [
  "vfw_build_utils",
  "vfw_primitives",
