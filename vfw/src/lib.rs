@@ -1,7 +1,7 @@
 #![no_std]
 use riscv::register::mtvec::TrapMode;
 pub use vfw_rs::vfw_core::arch::rv::{
-    self, clint::*, pmp, riscv, sbi, standard::trap::*, sys::*, trap::*,
+    self, arch::*, clint::*, pmp, riscv, sbi, standard::trap::*, sys::*,
 };
 pub use vfw_rs::vfw_core::*;
 pub use vfw_rs::vfw_hal::{embedded_hal, nb};
