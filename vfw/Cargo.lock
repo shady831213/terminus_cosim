@@ -481,7 +481,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "buddy_system_allocator",
  "riscv",
@@ -495,7 +495,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "mailbox_rs",
  "riscv",
@@ -518,7 +518,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -526,7 +526,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "vfw_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs?branch=fast_trap#3aee527edd42fec86464d919282305c7eb7a0307"
+source = "git+https://github.com/shady831213/vfw_rs#3aecbf89d68ec956871e475ee3e49a8d839b3ca7"
 dependencies = [
  "vfw_build_utils",
  "vfw_primitives",
