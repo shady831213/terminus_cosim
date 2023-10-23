@@ -9,14 +9,13 @@ fn trap_test() -> u32 {
     unsafe {
         core::arch::asm!("ecall");
     }
+    println!("ecall exit!");
     0xff
 }
 
 #[no_mangle]
-extern "C" fn my_exp_handler(trap_frame: &mut TrapFrame) {
-    println!("mepc:{:#x?}", mepc::read());
+extern "C" fn my_exp_handler(ctx: &mut FlowContext) {
+    println!("mepc:{:#x?}, pc:{:#x}", mepc::read(), ctx.pc);
     println!("exception cuase:{:#x?}", mcause::read().cause());
-    println!("frame:{:#x?}", trap_frame);
-    mepc::write(mepc::read().wrapping_add(4));
-    println!("mepc:{:#x?}", mepc::read());
+    ctx.pc += 4;
 }
