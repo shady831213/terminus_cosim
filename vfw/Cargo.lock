@@ -481,7 +481,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "buddy_system_allocator",
  "riscv",
@@ -495,7 +495,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -507,7 +507,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "mailbox_rs",
  "riscv",
@@ -518,7 +518,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -526,7 +526,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "vfw_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#af17f297275a2a13be103decd761e5af0eebbe4b"
+source = "git+https://github.com/shady831213/vfw_rs#67f3ab7152916e5c1740dfafb71a32bcfcc864f6"
 dependencies = [
  "vfw_build_utils",
  "vfw_primitives",
