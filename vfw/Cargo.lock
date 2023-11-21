@@ -180,7 +180,7 @@ checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 [[package]]
 name = "mailbox_rs"
 version = "0.2.0"
-source = "git+https://github.com/shady831213/mailbox_rs#d05d50126421adb0b5a564bb9e3fcd5a832744a6"
+source = "git+https://github.com/shady831213/mailbox_rs#459744fdd9cbd6974af698b5001fcf3de9332fd1"
 dependencies = [
  "konst",
  "nb 1.1.0",
@@ -487,7 +487,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "buddy_system_allocator",
  "paste",
@@ -502,7 +502,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "embedded-hal",
  "nb 1.1.0",
@@ -514,7 +514,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "mailbox_rs",
  "riscv",
@@ -525,7 +525,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "vfw_build_utils",
 ]
@@ -533,7 +533,7 @@ dependencies = [
 [[package]]
 name = "vfw_rs"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "vfw_build_utils",
  "vfw_core",
@@ -546,7 +546,7 @@ dependencies = [
 [[package]]
 name = "vfw_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#37e534d2859339e0f4a7b0f80afb3e386ebfb474"
+source = "git+https://github.com/shady831213/vfw_rs#6d39cf1bce54e99889ccbd57e03d9e31b1843534"
 dependencies = [
  "vfw_build_utils",
  "vfw_primitives",
