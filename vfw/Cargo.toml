@@ -17,5 +17,9 @@ members = [
     "terminus_cosim_tests",
 ]
 
+[features]
+ptr64 = ["vfw_rs/ptr64"]
+ptr32 = ["vfw_rs/ptr32"]
+
 [profile.release]
 lto = true
