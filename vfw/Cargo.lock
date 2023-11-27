@@ -465,7 +465,7 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 [[package]]
 name = "v_build_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/v_build_utils#48a47a5ddcd19becfca7361bd9d352c14c0039aa"
+source = "git+https://github.com/shady831213/v_build_utils#064d6142a3b6669e1dd1e9d1f127a1c47d6c18a5"
 
 [[package]]
 name = "version_check"
