@@ -465,7 +465,7 @@ checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
 [[package]]
 name = "v_build_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/v_build_utils#064d6142a3b6669e1dd1e9d1f127a1c47d6c18a5"
+source = "git+https://github.com/shady831213/v_build_utils#938da0581d278908cee7a86bdfdf13e83de060e4"
 
 [[package]]
 name = "version_check"
@@ -476,7 +476,7 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 [[package]]
 name = "vfw_build_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_build_utils#f23fb0a5ab44316137072f6f74c81225f2a71067"
+source = "git+https://github.com/shady831213/vfw_build_utils#b2a0ec7159ae7be322a021f8310e65d5109923f5"
 dependencies = [
  "cc",
  "handlebars",
