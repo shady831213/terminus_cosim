@@ -4,9 +4,9 @@ version = 3
 
 [[package]]
 name = "autocfg"
-version = "1.1.0"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+checksum = "f1fdabc7756949593fe60f30ec81974b613357de856987752631dea1e3394c80"
 
 [[package]]
 name = "bit_field"
@@ -25,21 +25,18 @@ dependencies = [
 
 [[package]]
 name = "buddy_system_allocator"
-version = "0.9.0"
+version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43f9365b6b0c9e1663ca4ca9440c00eda46bc85a3407070be8b5e0d8d1f29629"
+checksum = "d44d578cadd17312c75e7d0ef489361f160ace58f7139aa32001fee1a51b89b5"
 dependencies = [
  "spin",
 ]
 
 [[package]]
 name = "cc"
-version = "1.0.83"
+version = "1.0.95"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1174fb0b6ec23863f8b971027804a42614e347eafb0a95bf0b12cdae21fc4d0"
-dependencies = [
- "libc",
-]
+checksum = "d32a725bc159af97c3e629873bb9f88fb8cf8a4867175f76dc987815ea07c83b"
 
 [[package]]
 name = "cfg-if"
@@ -55,9 +52,9 @@ checksum = "6051f239ecec86fde3410901ab7860d458d160371533842974fc61f96d15879b"
 
 [[package]]
 name = "cpufeatures"
-version = "0.2.9"
+version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a17b76ff3a4162b0b27f354a0c87015ddad39d35f9c0c36607a3bdd175dde1f1"
+checksum = "53fe5e26ff1b7aef8bca9c6080520cfb8d9333c7568e1829cef191a9723e5504"
 dependencies = [
  "libc",
 ]
@@ -116,9 +113,9 @@ dependencies = [
 
 [[package]]
 name = "handlebars"
-version = "4.4.0"
+version = "4.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c39b3bc2a8f715298032cf5087e58573809374b08160aa7d750582bdb82d2683"
+checksum = "faa67bab9ff362228eb3d00bd024a4965d8231bbb7921167f0cfa66c6626b225"
 dependencies = [
  "log",
  "pest",
@@ -130,15 +127,15 @@ dependencies = [
 
 [[package]]
 name = "itoa"
-version = "1.0.9"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af150ab688ff2122fcef229be89cb50dd66af9e01a4ff320cc137eecc9bacc38"
+checksum = "49f1f14873335454500d59611f1cf4a4b0f786f9ac11f4312a78e4cf2566695b"
 
 [[package]]
 name = "konst"
-version = "0.3.6"
+version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "030400e39b2dff8beaa55986a17e0014ad657f569ca92426aafcb5e8e71faee7"
+checksum = "50a0ba6de5f7af397afff922f22c149ff605c766cd3269cf6c1cd5e466dbe3b9"
 dependencies = [
  "const_panic",
  "konst_kernel",
@@ -148,9 +145,9 @@ dependencies = [
 
 [[package]]
 name = "konst_kernel"
-version = "0.3.6"
+version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3376133edc39f027d551eb77b077c2865a0ef252b2e7d0dd6b6dc303db95d8b5"
+checksum = "be0a455a1719220fd6adf756088e1c69a85bf14b6a9e24537a5cc04f503edb2b"
 dependencies = [
  "typewit",
 ]
@@ -163,15 +160,15 @@ checksum = "4e28ab1dc35e09d60c2b8c90d12a9a8d9666c876c10a3739a3196db0103b6043"
 
 [[package]]
 name = "libc"
-version = "0.2.148"
+version = "0.2.154"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9cdc71e17332e86d2e1d38c1f99edcb6288ee11b815fb1a4b049eaa2114d369b"
+checksum = "ae743338b92ff9146ce83992f766a31066a91a8c84a45e0e9f21e7cf6de6d346"
 
 [[package]]
 name = "lock_api"
-version = "0.4.10"
+version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1cc9717a20b1bb222f333e6a92fd32f7d8a18ddc5a3191a11af45dcbf4dcd16"
+checksum = "07af8b9cdd281b7915f413fa73f29ebd5d55d0d3f0155584dade1ff18cea1b17"
 dependencies = [
  "autocfg",
  "scopeguard",
@@ -179,9 +176,9 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.20"
+version = "0.4.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
+checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
 
 [[package]]
 name = "mailbox_rs"
@@ -195,9 +192,9 @@ dependencies = [
 
 [[package]]
 name = "memchr"
-version = "2.6.3"
+version = "2.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f232d6ef707e1956a43342693d2a31e72989554d58299d7a88738cc95b0d35c"
+checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
 
 [[package]]
 name = "nb"
@@ -216,9 +213,9 @@ checksum = "8d5439c4ad607c3c23abf66de8c8bf57ba8adcd1f129e699851a6e43935d339d"
 
 [[package]]
 name = "once_cell"
-version = "1.18.0"
+version = "1.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
+checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 
 [[package]]
 name = "paste"
@@ -228,9 +225,9 @@ checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
 
 [[package]]
 name = "pest"
-version = "2.7.4"
+version = "2.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c022f1e7b65d6a24c0dbbd5fb344c66881bc01f3e5ae74a1c8100f2f985d98a4"
+checksum = "311fb059dee1a7b802f036316d790138c613a4e8b180c822e3925a662e9f0c95"
 dependencies = [
  "memchr",
  "thiserror",
@@ -239,9 +236,9 @@ dependencies = [
 
 [[package]]
 name = "pest_derive"
-version = "2.7.4"
+version = "2.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "35513f630d46400a977c4cb58f78e1bfbe01434316e60c37d27b9ad6139c66d8"
+checksum = "f73541b156d32197eecda1a4014d7f868fd2bcb3c550d5386087cfba442bf69c"
 dependencies = [
  "pest",
  "pest_generator",
@@ -249,9 +246,9 @@ dependencies = [
 
 [[package]]
 name = "pest_generator"
-version = "2.7.4"
+version = "2.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc9fc1b9e7057baba189b5c626e2d6f40681ae5b6eb064dc7c7834101ec8123a"
+checksum = "c35eeed0a3fab112f75165fdc026b3913f4183133f19b49be773ac9ea966e8bd"
 dependencies = [
  "pest",
  "pest_meta",
@@ -262,9 +259,9 @@ dependencies = [
 
 [[package]]
 name = "pest_meta"
-version = "2.7.4"
+version = "2.7.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1df74e9e7ec4053ceb980e7c0c8bd3594e977fde1af91daba9c928e8e8c6708d"
+checksum = "2adbf29bb9776f28caece835398781ab24435585fe0d4dc1374a61db5accedca"
 dependencies = [
  "once_cell",
  "pest",
@@ -273,18 +270,18 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.67"
+version = "1.0.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d433d9f1a3e8c1263d9456598b16fec66f4acc9a74dacffd35c7bb09b3a1328"
+checksum = "3d1597b0c024618f09a9c3b8655b7e430397a36d23fdafec26d6965e9eec3eba"
 dependencies = [
  "unicode-ident",
 ]
 
 [[package]]
 name = "quote"
-version = "1.0.33"
+version = "1.0.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5267fca4496028628a95160fc423a33e8b2e6af8a5302579e322e4b520293cae"
+checksum = "0fa76aaf39101c457836aec0ce2316dbdc3ab723cdda1c6bd4e6ad4208acaca7"
 dependencies = [
  "proc-macro2",
 ]
@@ -322,9 +319,9 @@ dependencies = [
 
 [[package]]
 name = "ryu"
-version = "1.0.15"
+version = "1.0.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ad4cc8da4ef723ed60bced201181d83791ad433213d8c24efffda1eec85d741"
+checksum = "e86697c916019a8588c99b5fac3cead74ec0b4b819707a682fd4d23fa0ce1ba1"
 
 [[package]]
 name = "sbi-spec"
@@ -352,18 +349,18 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "serde"
-version = "1.0.188"
+version = "1.0.199"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf9e0fcba69a370eed61bcf2b728575f726b50b55cba78064753d708ddc7549e"
+checksum = "0c9f6e76df036c77cd94996771fb40db98187f096dd0b9af39c6c6e452ba966a"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.188"
+version = "1.0.199"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4eca7ac642d82aa35b60049a6eccb4be6be75e599bd2e9adb5f875a737654af2"
+checksum = "11bd257a6541e141e42ca6d24ae26f7714887b47e89aa739099104c7e4d3b7fc"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -372,9 +369,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.107"
+version = "1.0.116"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b420ce6e3d8bd882e9b243c6eed35dbc9a6110c9769e74b584e0d68d1f20c65"
+checksum = "3e17db7126d17feb94eb3fad46bf1a96b034e8aacbc2e775fe81505f8b0b2813"
 dependencies = [
  "itoa",
  "ryu",
@@ -409,9 +406,9 @@ checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "syn"
-version = "2.0.37"
+version = "2.0.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7303ef2c05cd654186cb250d29049a24840ca25d2747c25c0381c8d9e2f582e8"
+checksum = "909518bc7b1c9b779f1bbf07f2929d35af9f0f37e47c6e9ef7f9dddc1e1821f3"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -423,7 +420,10 @@ name = "terminus_cosim"
 version = "0.1.0"
 dependencies = [
  "vfw_build_utils",
- "vfw_rs",
+ "vfw_core",
+ "vfw_hal",
+ "vfw_mailbox",
+ "vfw_primitives",
 ]
 
 [[package]]
@@ -436,18 +436,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.49"
+version = "1.0.59"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1177e8c6d7ede7afde3585fd2513e611227efd6481bd78d2e82ba1ce16557ed4"
+checksum = "f0126ad08bff79f29fc3ae6a55cc72352056dfff61e3ff8bb7129476d44b23aa"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.49"
+version = "1.0.59"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10712f02019e9288794769fba95cd6847df9874d49d871d062172f9dd41bc4cc"
+checksum = "d1cd413b5d558b4c5bf3680e324a6fa5014e7b7c067a51e69dbdf47eb7148b66"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -462,9 +462,18 @@ checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
 
 [[package]]
 name = "typewit"
-version = "1.7.0"
+version = "1.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9aa6b48ea01ae418f25260e05d1a97c5616a4e2d796dc3ba1e5a236a5100ed35"
+checksum = "c6fb9ae6a3cafaf0a5d14c2302ca525f9ae8e07a0f0e6949de88d882c37a6e24"
+dependencies = [
+ "typewit_proc_macros",
+]
+
+[[package]]
+name = "typewit_proc_macros"
+version = "1.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e36a83ea2b3c704935a01b4642946aadd445cea40b10935e3f8bd8052b8193d6"
 
 [[package]]
 name = "ucd-trie"
@@ -503,7 +512,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
+source = "git+https://github.com/shady831213/vfw_rs#c3bd10b4058dc46158b15fbc2ea5d4e5ad4b5e6c"
 dependencies = [
  "buddy_system_allocator",
  "paste",
@@ -518,7 +527,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
+source = "git+https://github.com/shady831213/vfw_rs#c3bd10b4058dc46158b15fbc2ea5d4e5ad4b5e6c"
 dependencies = [
  "embedded-hal 1.0.0",
  "nb 1.1.0",
@@ -530,7 +539,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
+source = "git+https://github.com/shady831213/vfw_rs#c3bd10b4058dc46158b15fbc2ea5d4e5ad4b5e6c"
 dependencies = [
  "mailbox_rs",
  "riscv 0.11.1",
@@ -541,31 +550,9 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
+source = "git+https://github.com/shady831213/vfw_rs#c3bd10b4058dc46158b15fbc2ea5d4e5ad4b5e6c"
 dependencies = [
  "vfw_build_utils",
-]
-
-[[package]]
-name = "vfw_rs"
-version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
-dependencies = [
- "vfw_build_utils",
- "vfw_core",
- "vfw_hal",
- "vfw_mailbox",
- "vfw_primitives",
- "vfw_utils",
-]
-
-[[package]]
-name = "vfw_utils"
-version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#46fbaeca76a8f4347c9849b82d3eecf99a4fab89"
-dependencies = [
- "vfw_build_utils",
- "vfw_primitives",
 ]
 
 [[package]]

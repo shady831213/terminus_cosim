@@ -1,12 +1,12 @@
 #![no_std]
 use riscv::register::mtvec::TrapMode;
-pub use vfw_rs::vfw_core::arch::rv::{
+pub use vfw_core::arch::rv::{
     self, arch::*, clint::*, pmp, riscv, sbi, standard::trap::*, sys::*,
 };
-pub use vfw_rs::vfw_core::*;
-pub use vfw_rs::vfw_hal::{embedded_hal, nb};
-pub use vfw_rs::vfw_mailbox::*;
-pub use vfw_rs::vfw_primitives::*;
+pub use vfw_core::*;
+pub use vfw_hal::{embedded_hal, nb};
+pub use vfw_mailbox::*;
+pub use vfw_primitives::*;
 extern crate alloc;
 const CLINT_BASE: usize = 0x02000000;
 
