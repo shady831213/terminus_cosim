@@ -33,7 +33,6 @@ pub fn exit(code: u32) -> ! {
 #[export_name = "__pre_init"]
 fn pre_init() {
     mailbox_init();
-    init_trap(TrapMode::Vectored);
 }
 
 #[no_mangle]
@@ -47,7 +46,12 @@ pub fn __print_str(s: &str) {
     mailbox_print_str(s)
 }
 #[no_mangle]
-fn __boot_core_init() {}
+fn __boot_core_init() {
+    init_trap(TrapMode::Vectored);
+    for i in 1..num_cores() {
+        fork_on!(i, init_trap);
+    }
+}
 
 #[export_name = "__init_bss"]
 fn init_bss(s: *mut u8, n: usize) {
