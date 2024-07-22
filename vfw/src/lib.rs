@@ -1,8 +1,6 @@
 #![no_std]
 use riscv::register::mtvec::TrapMode;
-pub use vfw_core::arch::rv::{
-    self, arch::*, clint::*, pmp, riscv, sbi, standard::trap::*, sys::*,
-};
+pub use vfw_core::arch::rv::{self, arch::*, clint::*, pmp, riscv, sbi, standard::trap::*, sys::*};
 pub use vfw_core::*;
 pub use vfw_hal::{embedded_hal, nb};
 pub use vfw_mailbox::*;
@@ -13,7 +11,7 @@ const CLINT_BASE: usize = 0x02000000;
 pub static CLINT: Clint = Clint::new(CLINT_BASE, true);
 
 #[export_name = "__wait_ipi"]
-fn wait_ipi() {
+pub fn wait_ipi() {
     rv_wait_ipi();
     clint_clear_soft(hartid())
 }
@@ -28,7 +26,7 @@ fn clint_clear_soft(hart_id: usize) {
 }
 
 #[export_name = "__exit"]
-fn exit(code: u32) -> ! {
+pub fn exit(code: u32) -> ! {
     mailbox_exit(code)
 }
 
