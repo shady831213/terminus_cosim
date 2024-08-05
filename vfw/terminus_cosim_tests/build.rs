@@ -6,7 +6,7 @@ fn main() {
         |builder| {
             let (_, incdir) = c_src_dir(&dep_header("terminus_cosim").unwrap()).unwrap();
             if env::var("CARGO_CFG_TARGET_ARCH").unwrap() == "riscv64" {
-                builder.flag("-mabi=lp64d")
+                builder.flag("-mabi=lp64d").flag("-mcmodel=medany")
             } else {
                 builder
             }
