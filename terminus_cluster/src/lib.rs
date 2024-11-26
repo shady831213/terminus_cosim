@@ -22,6 +22,7 @@ static mut CLUSTER: Cluster = Cluster {
     sys_bus: None,
 };
 
+#[allow(static_mut_refs)]
 #[no_mangle]
 extern "C" fn cluster_init(num_cores: u32) {
     let configs = vec![
@@ -100,6 +101,7 @@ extern "C" fn cluster_reset_core(hartid: u32, boot_addr: u64) {
     println!("reset core to {:#x}!", boot_addr);
 }
 
+#[allow(static_mut_refs)]
 #[no_mangle]
 extern "C" fn cluster_run() -> ! {
     extern "C" {
@@ -115,6 +117,7 @@ extern "C" fn cluster_run() -> ! {
     }
 }
 
+#[allow(static_mut_refs)]
 #[no_mangle]
 extern "C" fn cluster_run_1step() {
     unsafe {
@@ -124,6 +127,7 @@ extern "C" fn cluster_run_1step() {
     }
 }
 
+#[allow(static_mut_refs)]
 #[no_mangle]
 extern "C" fn cluster_statics() {
     unsafe {

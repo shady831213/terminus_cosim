@@ -1,6 +1,7 @@
 [package]
 name = "terminus_cosim"
 version = "0.1.0"
+rust-version = "1.80"
 edition = "2021"
 links = "terminus_cosim"
 
@@ -12,6 +13,11 @@ vfw_primitives = {git = "https://github.com/shady831213/vfw_rs", features=["full
 vfw_mailbox = {git = "https://github.com/shady831213/vfw_rs", features=["max_chs_1", "reloc"]}
 vfw_hal = {git = "https://github.com/shady831213/vfw_rs"}
 
+#[patch."https://github.com/shady831213/vfw_rs"]
+#vfw_core = { path = '../../vfw_rs/vfw_core' }
+#vfw_primitives = { path = '../../vfw_rs/vfw_primitives' }
+#vfw_mailbox = { path = '../../vfw_rs/vfw_mailbox' }
+#vfw_hal = { path = '../../vfw_rs/vfw_hal' }
 
 
 [build-dependencies]
