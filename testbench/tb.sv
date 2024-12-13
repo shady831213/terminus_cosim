@@ -11,7 +11,7 @@
 `endif
 
 `ifndef GLOBAL_SIZE
-`define GLOBAL_SIZE 32'd1048576
+`define GLOBAL_SIZE 32'h200000
 `endif
 
 `define GLOBAL_ID 32'h1000

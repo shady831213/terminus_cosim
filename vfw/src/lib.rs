@@ -52,14 +52,3 @@ fn __boot_core_init() {
         fork_on!(i, init_trap);
     }
 }
-
-#[export_name = "__init_bss"]
-fn init_bss(s: *mut u8, n: usize) {
-    extern "C" {
-        fn mailbox_memset(dest: *mut u8, data: i32, n: usize) -> *mut u8;
-    }
-    mem_invalid(s as usize, n);
-    unsafe {
-        mailbox_memset(s, 0, n);
-    }
-}
