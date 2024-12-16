@@ -80,9 +80,9 @@ module TestModule(input bit clock);
 
     initial begin
         cluster_init(3);
-        cluster_reset_core(0, 64'h80000000);
-        cluster_reset_core(1, 64'h80000000);
-        cluster_reset_core(2, 64'h80000000);
+        cluster_reset_core(0, 64'h80100000);
+        cluster_reset_core(1, 64'h80100000);
+        cluster_reset_core(2, 64'h80100000);
     end
 
     always @(posedge clock) begin

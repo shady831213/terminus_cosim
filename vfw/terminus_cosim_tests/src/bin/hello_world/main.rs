@@ -5,6 +5,7 @@ use terminus_cosim::*;
 #[export_name = "main"]
 fn hello_world() -> u32 {
     println!("hello_world sp = {:#x}", get_sp!());
+
     let hartid = hartid();
     try_fork!(task3, hartid).unwrap();
     let task1_id = try_fork!(task1).unwrap();
