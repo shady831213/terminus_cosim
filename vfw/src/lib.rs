@@ -30,8 +30,8 @@ pub fn exit(code: u32) -> ! {
     mailbox_exit(code)
 }
 
-#[export_name = "__pre_init"]
-fn pre_init() {
+#[export_name = "__post_init"]
+fn post_init() {
     mailbox_init();
 }
 
