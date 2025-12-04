@@ -10,8 +10,7 @@ cd ${CUR_DIR}/tb_dpi
 cargo build --release --features="ptr32"
 cd ${CUR_DIR}/vfw
 #proxychains cargo update --workspace
-TESTNAME=$TESTNAME RISCV_TOOLCHAIN_PREFIX=riscv64-unknown-elf- cargo build -p terminus_cosim_tests  --features="terminus_cosim/ptr32" -Zunstable-options --release --out-dir target/$TESTNAME --bin $TESTNAME --target riscv32imac-unknown-none-elf
-riscv64-unknown-elf-objdump -D target/$TESTNAME/$TESTNAME >| target/$TESTNAME/$TESTNAME.dump
+cargo xtask vfw build -- $TESTNAME
 cd ${CUR_DIR}
 
 rm -rf ${CUR_DIR}/obj_dir
@@ -26,5 +25,5 @@ make -C ${CUR_DIR}/obj_dir -f VTestModule.mk
 MAILBOX_CFG_FILE=${CUR_DIR}/testbench/mailbox_cfg.yaml \
 MEM_CFG_FILE=${CUR_DIR}/testbench/mem_cfg.yaml \
 MAILBOX_FS_ROOT=${CUR_DIR}/mb_fs_root \
-ELF_FILE=${CUR_DIR}/vfw/target/$TESTNAME/$TESTNAME \
+ELF_FILE=${CUR_DIR}/vfw/vfw/target/$TESTNAME/$TESTNAME \
 ./test

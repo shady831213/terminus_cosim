@@ -1,0 +1,6 @@
+[alias]
+xtask = "run --package xtask --"
+build_xtask = "build --package xtask --"
+
+[net]
+git-fetch-with-cli = true

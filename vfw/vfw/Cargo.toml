@@ -1,0 +1,36 @@
+[package]
+name = "terminus_cosim"
+version = "0.1.0"
+rust-version = "1.80"
+edition = "2021"
+links = "terminus_cosim"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+vfw_core = {git = "https://github.com/shady831213/vfw_rs", features=["max_cores_4"]}
+vfw_primitives = {git = "https://github.com/shady831213/vfw_rs", features=["full_panic"]}
+vfw_mailbox = {git = "https://github.com/shady831213/vfw_rs", features=["max_chs_1"]}
+vfw_hal = {git = "https://github.com/shady831213/vfw_rs"}
+
+#[patch."https://github.com/shady831213/vfw_rs"]
+#vfw_core = { path = '../../vfw_rs/vfw_core' }
+#vfw_primitives = { path = '../../vfw_rs/vfw_primitives' }
+#vfw_mailbox = { path = '../../vfw_rs/vfw_mailbox' }
+#vfw_hal = { path = '../../vfw_rs/vfw_hal' }
+
+
+[build-dependencies]
+vfw_build_utils = {git = "https://github.com/shady831213/vfw_build_utils"}
+
+[workspace]
+members = [
+    "tests",
+]
+
+[features]
+ptr64 = ["vfw_mailbox/ptr64"]
+ptr32 = ["vfw_mailbox/ptr32"]
+
+[profile.release]
+lto = true

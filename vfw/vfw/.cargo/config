@@ -12,6 +12,3 @@ rustflags = [
     "-C", "link-arg=-Tterminus_cosim.x",
     "-C", "relocation-model=pic",
 ]
-
-[net]
-git-fetch-with-cli = true
