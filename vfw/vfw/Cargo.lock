@@ -501,7 +501,7 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 [[package]]
 name = "vfw_build_utils"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_build_utils#16473ef8707902b93b0417d36894faa4fa45ef28"
+source = "git+https://github.com/shady831213/vfw_build_utils#f7bd4970f16345d4360d3595e3a2471ea055e29e"
 dependencies = [
  "cc",
  "handlebars",
@@ -512,7 +512,7 @@ dependencies = [
 [[package]]
 name = "vfw_core"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#395b2d1bd66071a876938f83bfc7602cdc5f2145"
+source = "git+https://github.com/shady831213/vfw_rs#cb35b6757b78acdb36d4131ec48529f49572afb9"
 dependencies = [
  "buddy_system_allocator",
  "paste",
@@ -527,7 +527,7 @@ dependencies = [
 [[package]]
 name = "vfw_hal"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#395b2d1bd66071a876938f83bfc7602cdc5f2145"
+source = "git+https://github.com/shady831213/vfw_rs#cb35b6757b78acdb36d4131ec48529f49572afb9"
 dependencies = [
  "embedded-hal 1.0.0",
  "nb 1.1.0",
@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "vfw_mailbox"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#395b2d1bd66071a876938f83bfc7602cdc5f2145"
+source = "git+https://github.com/shady831213/vfw_rs#cb35b6757b78acdb36d4131ec48529f49572afb9"
 dependencies = [
  "mailbox_rs",
  "riscv 0.11.1",
@@ -550,7 +550,7 @@ dependencies = [
 [[package]]
 name = "vfw_primitives"
 version = "0.1.0"
-source = "git+https://github.com/shady831213/vfw_rs#395b2d1bd66071a876938f83bfc7602cdc5f2145"
+source = "git+https://github.com/shady831213/vfw_rs#cb35b6757b78acdb36d4131ec48529f49572afb9"
 dependencies = [
  "vfw_build_utils",
 ]
