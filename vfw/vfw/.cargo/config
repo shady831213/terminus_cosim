@@ -10,4 +10,5 @@ rustflags = [
     "-C", "link-arg=-Tvfw.x",
     "-C", "link-arg=-Tmailbox.x",
     "-C", "link-arg=-Tterminus_cosim.x",
+    "-C", "relocation-model=pic",
 ]
