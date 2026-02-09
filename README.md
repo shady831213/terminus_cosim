@@ -22,6 +22,8 @@ git submodule update --init
 Then you should get:
 ![](https://github.com/shady831213/terminus_cosim/blob/master/hello_world.PNG)
 
+## Introductins
+[Rust For IC design & Verification: vfw, vhost, terminus](https://www.bilibili.com/video/BV1qPe3ezE94/)
 
 ## About other EDA tools
 Other EDA tools, such as xrun, are also supported, but you need modify some DPI method to adapt to them.
