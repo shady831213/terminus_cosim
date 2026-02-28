@@ -10,6 +10,10 @@ terminus_cosim = { path = ".."}
 
 [build-dependencies]
 vfw_build_utils = {git = "https://github.com/shady831213/vfw_build_utils"}
+which = "8.0.0"
 
-[patch."https://github.com/shady831213/vfw_build_utils"]
-vfw_hal = { path = '../../../../vfw_build_utils/vfw_build_utils' }
+[features]
+c_cov = ["terminus_cosim/c_cov"]
+
+#[patch."https://github.com/shady831213/vfw_build_utils"]
+#vfw_hal = { path = '../../../../vfw_build_utils/vfw_build_utils' }
