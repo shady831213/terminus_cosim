@@ -36,7 +36,7 @@ module TestModule(input bit clock);
     import "DPI-C" function void cluster_init(int unsigned num_cores);
     import "DPI-C" function void cluster_reset_core(int unsigned hartid, longint unsigned boot_addr);
     import "DPI-C" context task mb_server_run_async();
-    import "DPI-C" task cluster_run_1step();
+    import "DPI-C" context task cluster_run_1step();
     export "DPI-C" function mem_write_bd;
     export "DPI-C" function mem_read_bd;
     export "DPI-C" function mb_exit;
@@ -158,7 +158,7 @@ module TestModule(input bit clock);
         $display("--------------------------");
     endfunction
 
-    function void test_bk_string();
+    function automatic void test_bk_string();
         string s="";
         $display("test_bk_string:");
         $display("--------------------------");

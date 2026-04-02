@@ -1,4 +1,9 @@
 use mailbox_rs::{mb_rpcs::*, mb_std::*};
+use std::ffi::{c_char, c_void, CString};
+extern "C" {
+    fn svGetScopeFromName(name: *const c_char) -> *const c_void;
+    fn svSetScope(scope: *const c_void);
+}
 #[derive(Debug)]
 pub struct DPIShareMem {
     id: u32,
@@ -21,6 +26,8 @@ impl MBShareMem for DPIShareMem {
             fn mem_write_bd(id: u32, addr: u64, data: u8);
         }
         unsafe {
+            let scope = CString::new("TOP.TestModule").unwrap();
+            svSetScope(svGetScopeFromName(scope.as_ptr()));
             for (i, d) in data.iter().enumerate() {
                 mem_write_bd(self.id, addr as u64 + i as u64, *d);
             }
@@ -32,6 +39,8 @@ impl MBShareMem for DPIShareMem {
             fn mem_read_bd(id: u32, addr: u64, data: &mut u8);
         }
         unsafe {
+            let scope = CString::new("TOP.TestModule").unwrap();
+            svSetScope(svGetScopeFromName(scope.as_ptr()));
             for (i, d) in data.iter_mut().enumerate() {
                 mem_read_bd(self.id, addr as u64 + i as u64, d);
             }
